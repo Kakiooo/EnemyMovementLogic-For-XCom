@@ -16,3 +16,6 @@
 <br/>-FYI: Enemy will only run cover search once time instead update the cover info all the time in UPDATE() function. //Bool like IsMyTurn is to make searching only run once.
 ## More Info
 -The Script uses unity package called AI Navigation to make enemy has the pathfinding ability, may need to install the package before using the Script.// _Nav_Enemy.destination = _sidePos; is to set the target position for enemy.
+## Info for Example Project File
+### Control
+-Left Mouse click for player to move (QTE shows up for player to have faster move).
