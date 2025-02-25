@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     bool WithBarricade;
     public bool IsRetreat, IsMyTurn, IsChosen;
     Vector3  _sidePos, _former_Dis;
-    float enemyRangeRadius,_rangeLimited=20;
+    float enemyRangeRadius,_maxMoveDis=20;
     public bool isInRange;
 
     Transform _moveTargetTransform;
@@ -159,7 +159,7 @@ public class EnemyMovement : MonoBehaviour
             for (int i = 0; i <= _refToEnemyManager._barricadeTransform.Count - 1; i++)
             {
                 Vector3 disCheck = _refToPlayer.transform.position - _refToEnemyManager._barricadeTransform[i].position;
-                if (disCheck.magnitude < _former_Dis.magnitude&&(transform.position - _refToEnemyManager._barricadeTransform[i].position).magnitude > _rangeLimited)
+                if (disCheck.magnitude < _former_Dis.magnitude&&(transform.position - _refToEnemyManager._barricadeTransform[i].position).magnitude > _maxMoveDis)
                 {
                     DeletePos.Add(_refToEnemyManager._barricadeTransform[i]);// (less objects to be calculated using Delete from entire list under this circumstance)
                     _refToEnemyManager._barricadeTransform.Remove(_refToEnemyManager._barricadeTransform[i]);
@@ -203,7 +203,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector2 IgnoreYDisCheck = new Vector2(_refToPlayer.transform.position.x, _refToPlayer.transform.position.z) - new Vector2(_refToEnemyManager._barricadeTransform[i].position.x, _refToEnemyManager._barricadeTransform[i].position.z);
             float disBetweenPnB = IgnoreYDisCheck.magnitude;
-            if (disBetweenPnB <= disToPlayer&&(transform.position - _refToEnemyManager._barricadeTransform[i].position).magnitude <= _rangeLimited)
+            if (disBetweenPnB <= disToPlayer&&(transform.position - _refToEnemyManager._barricadeTransform[i].position).magnitude <= _maxMoveDis)
             {
                 GoList.Add(_refToEnemyManager._barricadeTransform[i]);//adding the possible barricade for enemy to get closer (less objects to be calculated to create new list of available closer barricade under this circumstance)
             }
