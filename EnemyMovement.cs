@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     bool WithBarricade;
     public bool IsRetreat, IsMyTurn, IsChosen;
     Vector3  _sidePos, _former_Dis;
-    float enemyRangeRadius;
+    float enemyRangeRadius,_rangeLimited=20;
     public bool isInRange;
 
     Transform _moveTargetTransform;
@@ -159,7 +159,7 @@ public class EnemyMovement : MonoBehaviour
             for (int i = 0; i <= _refToEnemyManager._barricadeTransform.Count - 1; i++)
             {
                 Vector3 disCheck = _refToPlayer.transform.position - _refToEnemyManager._barricadeTransform[i].position;
-                if (disCheck.magnitude < _former_Dis.magnitude)
+                if (disCheck.magnitude < _former_Dis.magnitude&&(transform.position - _refToEnemyManager._barricadeTransform[i].position).magnitude > _rangeLimited)
                 {
                     DeletePos.Add(_refToEnemyManager._barricadeTransform[i]);// (less objects to be calculated using Delete from entire list under this circumstance)
                     _refToEnemyManager._barricadeTransform.Remove(_refToEnemyManager._barricadeTransform[i]);
