@@ -209,18 +209,24 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        int intendIndex = UnityEngine.Random.Range(0, GoList.Count - 1);//choose the random closer barricade
-        print(GoList.Count);
-        Transform intendObj = GoList[intendIndex].transform;
-        _sidePos = GetFarthestChildToPlayer(intendObj).position;
-        _moveTargetTransform = intendObj;
+         if (GoList.Count > 0)
+  {
 
-        for (int i = 0; i <= GoList.Count - 1; i++)
-        {
-            GoList.Clear();
-        }// load back all the avaliable pos for other enemies
-
-        _refToEnemyManager._barricadeTransform.Remove(intendObj);//occupied the place
+      int intendIndex = UnityEngine.Random.Range(0, GoList.Count - 1);//choose the random closer barricade
+      Transform intendObj = GoList[intendIndex].transform;
+      _sidePos = GetFarthestChildToPlayer(intendObj).position;
+      _moveTargetTransform = intendObj;
+      _refToEnemyManager._barricadeTransform.Remove(intendObj);//occupied the place
+      GoList.Clear();
+  }
+  else
+  {
+      int intendIndex = EnemyChooseBarricade(_refToEnemyManager._barricadeTransform);
+      Transform intendObj = _refToEnemyManager._barricadeTransform[intendIndex].transform;
+      _sidePos = GetFarthestChildToPlayer(intendObj).position;
+      _moveTargetTransform = intendObj;
+      _refToEnemyManager._barricadeTransform.Remove(intendObj);//occupied the place
+  }
 
         _refToEnemyManager._barricadeTransform.Add(FormerTransform);
     }
