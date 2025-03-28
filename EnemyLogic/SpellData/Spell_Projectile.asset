@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37a02772fbb29b49bd1a0748aa730eb, type: 3}
+  m_Name: Spell_Projectile
+  m_EditorClassIdentifier: 
+  SpellName: ProjectileAttack
+  Spell_Type: FromGround
+  SpellComponents: 0200000002000000
+  Damage: 10
+  FeedbackPrefab: {fileID: 8791330821768745591, guid: 5ef267e4420fa6d458a53003d5938eba,
+    type: 3}
+  SubSepll: {fileID: 5524590292671962877, guid: f7043b7291f49844b9671b3d3dedcbb5,
+    type: 3}
+  ColliderObject: {fileID: 0}
