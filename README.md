@@ -4,6 +4,7 @@
 <br/>2.setting Player Game object as the target for individual enemies
 <br/>3.Put All enemy under EnemyManager GameObject. 
 <br/>4.Add EnemyManagerSc to Manager, and enemyMovement to Individuals. 
+<br/>5.Only normal enemy need to be put as the children of EnemyManager
 ## Logic of Code
 <br/>-First Enemy will get a list that contain all the Transform info of the Barricades which is also called Covers.
 <br/>-Then enemy will first search for random closest cover to go
@@ -17,6 +18,7 @@
 ## More Info
 -The Script uses unity package called AI Navigation to make enemy has the pathfinding ability, may need to install the package before using the Script.// _Nav_Enemy.destination = _sidePos; is to set the target position for enemy.
 <br/>-There is a state control for enemy but is not been used in this logic//ignore the *ActionPoolLoadIn() function and *enemyState variable is the state is not helpful to you
+<br/>-EnemySpell is the scriptableobject type for creating variant spell prefab for enemies
 ## Info for Example Project File
 ### Control
 -Left Mouse click for player to move (QTE shows up for player to have faster move).
